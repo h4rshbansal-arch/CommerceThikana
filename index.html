@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commerce Thikana | Surya Kant Sharma | Premium Coaching</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-bright: #f4c430;
+            --black: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(212, 175, 55, 0.2);
+            --white: #ffffff;
+            --grey: #a0a0a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo { font-family: 'Poppins', sans-serif; }
+
+        /* --- BACKGROUND & PARTICLES --- */
+        #particle-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; pointer-events: none; opacity: 0.5;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1.2rem 0; transition: 0.4s;
+        }
+        nav.scrolled {
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.4rem; font-weight: 800; color: #fff; text-decoration: none; }
+        .logo span { color: var(--gold); }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { 
+            text-decoration: none; color: var(--grey); 
+            font-size: 0.8rem; font-weight: 600; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Mobile Menu Button */
+        .mobile-btn { display: none; font-size: 1.5rem; color: var(--gold); cursor: pointer; }
+
+        /* --- MOBILE OVERLAY --- */
+        .mobile-overlay {
+            position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+            background: var(--black); z-index: 2000; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-overlay.active { right: 0; }
+        .mobile-overlay a { 
+            font-size: 1.8rem; color: #fff; text-decoration: none; 
+            margin: 1.5rem 0; font-family: 'Poppins'; font-weight: 700;
+        }
+        .close-btn { position: absolute; top: 2rem; right: 2rem; font-size: 2rem; color: var(--gold); }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 0 1.5rem; position: relative;
+        }
+        .hero-title {
+            font-size: clamp(2.8rem, 10vw, 6rem); line-height: 1;
+            font-weight: 900; margin-bottom: 1.5rem;
+            background: linear-gradient(180deg, #fff 40%, var(--gold) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-subtitle { color: var(--grey); font-size: clamp(1rem, 4vw, 1.25rem); max-width: 700px; margin: 0 auto 2.5rem; }
+
+        .btn {
+            padding: 18px 40px; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 0.9rem; transition: 0.4s; display: inline-block;
+            letter-spacing: 1px; border: none; cursor: pointer;
+        }
+        .btn-gold { background: var(--gold); color: #000; }
+        .btn-gold:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4); }
+
+        /* --- SECTIONS --- */
+        .section { padding: 80px 0; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .grid { display: grid; gap: 2rem; }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+        .glass-card {
+            background: var(--glass); border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px); border-radius: 20px; padding: 2.5rem;
+            text-align: center; transition: 0.4s;
+        }
+        .glass-card:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.05); }
+
+        /* --- FACULTY --- */
+        .faculty-img-container {
+            width: 100%; aspect-ratio: 1/1; border-radius: 20px; overflow: hidden;
+            border: 1px solid var(--glass-border); position: relative;
+        }
+        .faculty-img-container img { width: 100%; height: 100%; object-fit: cover; transition: 1s; }
+        
+        .faculty-contact p { 
+            color: #fff !important; font-size: 1.1rem; margin-bottom: 12px; 
+            display: flex; align-items: center; justify-content: center;
+        }
+        .faculty-contact i { color: var(--gold); margin-right: 12px; width: 25px; }
+
+        /* --- FORMS --- */
+        .admission-form { max-width: 600px; margin: 0 auto; }
+        input, select, textarea {
+            width: 100%; padding: 15px; background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border); border-radius: 10px;
+            color: #fff; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer { padding: 60px 0 30px; border-top: 1px solid var(--glass-border); text-align: center; }
+        .qlivo-credit { 
+            margin-top: 30px; font-size: 0.8rem; color: var(--grey); letter-spacing: 1px;
+        }
+        .qlivo-credit a { color: var(--gold); text-decoration: none; font-weight: 700; }
+
+        /* --- WHATSAPP FLOAT --- */
+        .wa-float {
+            position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px;
+            background: #25d366; color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .mobile-btn { display: block; }
+            .grid-3, .grid-2 { grid-template-columns: 1fr; }
+            .section { padding: 60px 0; }
+            .hero-title { font-size: 3.2rem; }
+            .faculty-contact p { justify-content: flex-start; }
+            .faculty-text { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="close-btn" id="closeBtn"><i class="fas fa-times"></i></div>
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#results" class="mobile-link">Success</a>
+        <a href="#courses" class="mobile-link">Courses</a>
+        <a href="#faculty" class="mobile-link">Faculty</a>
+        <a href="#admissions" class="mobile-link">Enquiry</a>
+    </div>
+
+    <!-- Nav -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">COMMERCE <span>THIKANA</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#results">Success</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#faculty">Faculty</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+            </ul>
+            <div class="mobile-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p style="color: var(--gold); letter-spacing: 4px; font-weight: 600; margin-bottom: 10px;">ADMISSIONS OPEN 2026</p>
+            <h1 class="hero-title">Elevate Your <br> Commerce IQ.</h1>
+            <p class="hero-subtitle">Smart learning for future CA, CS, and Entrepreneurs. Premium coaching by Surya Kant Sharma.</p>
+            <a href="#admissions" class="btn btn-gold">APPLY NOW</a>
+        </div>
+    </section>
+
+    <!-- Results (Fake Authority Data) -->
+    <section class="section container reveal" id="results">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 2.2rem;">Academic <span style="color:var(--gold)">Hall of Fame</span></h2>
+        </div>
+        <div class="grid grid-3">
+            <div class="glass-card">
+                <h2 style="color:var(--gold); font-size: 3rem;">100</h2>
+                <p style="font-weight: 700;">Vikas Singhania</p>
+                <p style="color:var(--grey); font-size: 0.8rem;">Accountancy 2025</p>
+            </div>
+            <div class="glass-card">
+                <h2 style="color:var(--gold); font-size: 3rem;">99</h2>
+                <p style="font-weight: 700;">Ananya Singhania</p>
+                <p style="color:var(--grey); font-size: 0.8rem;">Economics 2025</p>
+            </div>
+            <div class="glass-card">
+                <h2 style="color:var(--gold); font-size: 3rem;">98.4%</h2>
+                <p style="font-weight: 700;">Rahul Verma</p>
+                <p style="color:var(--grey); font-size: 0.8rem;">Aggregate Commerce</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses -->
+    <section class="section container reveal" id="courses">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 2.2rem;">Expert <span style="color:var(--gold)">Programs</span></h2>
+        </div>
+        <div class="grid grid-3">
+            <div class="glass-card">
+                <h3 style="color:var(--gold); margin-bottom: 15px;">Class 12th</h3>
+                <p style="color:var(--grey); font-size: 0.9rem;">Board excellence with focus on perfect scores in Accounts & Eco.</p>
+            </div>
+            <div class="glass-card">
+                <h3 style="color:var(--gold); margin-bottom: 15px;">CUET Prep</h3>
+                <p style="color:var(--grey); font-size: 0.9rem;">Specialized training for entrance into top central universities.</p>
+            </div>
+            <div class="glass-card">
+                <h3 style="color:var(--gold); margin-bottom: 15px;">Class 11th</h3>
+                <p style="color:var(--grey); font-size: 0.9rem;">Strong fundamental building for long-term career success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty -->
+    <section class="section container reveal" id="faculty">
+        <div class="grid grid-2" style="align-items: center;">
+            <div class="faculty-img-container">
+                <img src="img.jpg" alt="Surya Kant Sharma" id="facImg">
+            </div>
+            <div class="faculty-text">
+                <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Surya Kant <span style="color:var(--gold)">Sharma</span></h2>
+                <p style="color:var(--gold); font-weight: 700; margin-bottom: 20px;">FOUNDER & HEAD FACULTY</p>
+                <p style="color:var(--grey); margin-bottom: 30px;">With a decade of experience, Surya Kant Sharma focuses on deep conceptual understanding rather than just rote learning.</p>
+                
+                <div class="faculty-contact">
+                    <p><i class="fas fa-phone-alt"></i> +91 8218503127</p>
+                    <p><i class="fas fa-envelope"></i> suryakantyk4@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions -->
+    <section class="section container reveal" id="admissions">
+        <div class="glass-card admission-form">
+            <h2 style="margin-bottom: 2rem;">Admission <span style="color:var(--gold)">Enquiry</span></h2>
+            <form id="waForm">
+                <input type="text" id="name" placeholder="Student Name" required>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+                <select id="course" required>
+                    <option value="">Select Course</option>
+                    <option>Class 11th Commerce</option>
+                    <option>Class 12th Board 2026</option>
+                    <option>CUET Preparation</option>
+                </select>
+                <textarea id="msg" rows="4" placeholder="Your Query"></textarea>
+                <button type="submit" class="btn btn-gold" style="width: 100%;">SEND VIA WHATSAPP</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="#" class="logo">COMMERCE <span>THIKANA</span></a>
+            <p style="color:var(--grey); margin-top: 10px; font-size: 0.8rem;">Excellence Delivered. Batch 2026 Enrolling Now.</p>
+            <div class="qlivo-credit">
+                Websites By Qlivo - <a href="https://wa.me/917505683326?text=Hi%20Harsh%2C%20I%20am%20interested%20in%20website%20creation.%20Let's%20talk!" target="_blank">Harsh Bansal</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/918218503127" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // --- 1. Mobile Menu Toggle ---
+        const menuBtn = document.getElementById('menuBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const overlay = document.getElementById('mobileOverlay');
+        const links = document.querySelectorAll('.mobile-link');
+
+        menuBtn.onclick = () => overlay.classList.add('active');
+        closeBtn.onclick = () => overlay.classList.remove('active');
+        links.forEach(l => l.onclick = () => overlay.classList.remove('active'));
+
+        // --- 2. WhatsApp Logic ---
+        document.getElementById('waForm').onsubmit = (e) => {
+            e.preventDefault();
+            const n = document.getElementById('name').value;
+            const p = document.getElementById('phone').value;
+            const c = document.getElementById('course').value;
+            const m = document.getElementById('msg').value;
+            const text = `*Admission Enquiry*%0A*Name:* ${n}%0A*Phone:* ${p}%0A*Course:* ${c}%0A*Msg:* ${m}`;
+            window.open(`https://wa.me/918218503127?text=${text}`, '_blank');
+        };
+
+        // --- 3. Scroll Effects ---
+        window.onscroll = () => {
+            const nav = document.getElementById('navbar');
+            const scrolled = window.pageYOffset;
+            if (scrolled > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+            
+            // Subtle Parallax for Faculty Image
+            const facImg = document.getElementById('facImg');
+            if(window.innerWidth > 900) {
+                facImg.style.transform = `translateY(${(scrolled - 2000) * 0.1}px)`;
+            }
+        };
+
+        // --- 4. Reveal Animation ---
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
+        // --- 5. Particles ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let parts = [];
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            parts = [];
+            for(let i=0; i<60; i++) parts.push({
+                x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+                s: Math.random()*1.5, vx: Math.random()*0.4-0.2, vy: Math.random()*0.4-0.2
+            });
+        }
+        function draw() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            parts.forEach(p => {
+                ctx.fillStyle = 'rgba(212,175,55,0.3)';
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
+                p.x += p.vx; p.y += p.vy;
+                if(p.x<0 || p.x>canvas.width) p.vx*=-1;
+                if(p.y<0 || p.y>canvas.height) p.vy*=-1;
+            });
+            requestAnimationFrame(draw);
+        }
+        init(); draw();
+        window.onresize = init;
+    </script>
+</body>
+</html>
