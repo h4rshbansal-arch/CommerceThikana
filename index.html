@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commerce Thikana | Surya Kant Sharma | Premium Commerce Coaching</title>
+    <title>Commerce Thikana | Elite Commerce Academy</title>
     
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
             --gold: #d4af37;
-            --gold-light: #f4d03f;
-            --black: #050505;
-            --dark: #0a0a0a;
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --black: #080808;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(212, 175, 55, 0.2);
             --white: #ffffff;
@@ -33,43 +31,131 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, .poppins { font-family: 'Poppins', sans-serif; }
+        h1, h2, h3, .logo-text { font-family: 'Poppins', sans-serif; }
 
-        /* --- BACKGROUND & PARTICLES --- */
+        /* --- BACKGROUND PARTICLES --- */
         #particle-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; pointer-events: none; opacity: 0.4;
+            z-index: -1; pointer-events: none; opacity: 0.5;
         }
 
         /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 1rem 0; transition: 0.4s;
+            padding: 1rem 0; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         nav.scrolled {
-            background: rgba(5, 5, 5, 0.98);
-            backdrop-filter: blur(20px);
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--glass-border);
         }
         .nav-container {
-            max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+            max-width: 1300px; margin: 0 auto; padding: 0 1.5rem;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .nav-logo img {
-            height: 50px; /* Placeholder for logo.jpg */
-            width: auto;
-            vertical-align: middle;
+        
+        /* Logo + Text Branding */
+        .brand-box { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand-box img { height: 45px; width: 45px; object-fit: contain; border-radius: 5px; }
+        .logo-text { 
+            font-size: 1.2rem; font-weight: 800; color: #fff; 
+            letter-spacing: 1px; text-transform: uppercase; 
         }
+        .logo-text span { color: var(--gold); }
 
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a { 
             text-decoration: none; color: var(--grey); 
-            font-size: 0.8rem; font-weight: 600; transition: 0.3s;
-            text-transform: uppercase; letter-spacing: 1px;
+            font-size: 0.75rem; font-weight: 600; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1.5px;
         }
         .nav-links a:hover { color: var(--gold); }
 
         .mobile-btn { display: none; font-size: 1.5rem; color: var(--gold); cursor: pointer; }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 0 1.5rem; background: radial-gradient(circle at center, #111 0%, #080808 100%);
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 10vw, 6.5rem); line-height: 1;
+            font-weight: 900; margin-bottom: 1.5rem;
+            background: linear-gradient(180deg, #fff 50%, var(--gold) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-subtitle { color: var(--grey); font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem; font-weight: 300; }
+
+        .btn {
+            padding: 20px 45px; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 0.9rem; transition: 0.5s; display: inline-block;
+            letter-spacing: 1px; border: none; cursor: pointer;
+        }
+        .btn-gold { background: var(--gold); color: #000; }
+        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 15px 40px var(--gold-glow); }
+
+        /* --- SECTIONS --- */
+        .section { padding: 120px 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .section-header { text-align: center; margin-bottom: 5rem; }
+        .section-header h2 { font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; }
+        .section-header span { color: var(--gold); }
+        
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- PREMIUM FORM --- */
+        .admission-portal {
+            max-width: 850px; margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px; padding: 4rem;
+            position: relative; overflow: hidden;
+        }
+        .admission-portal::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+        .portal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-size: 0.75rem; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; font-weight: 700; }
+        
+        input, select, textarea {
+            width: 100%; padding: 18px; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 15px;
+            color: #fff; font-family: inherit; font-size: 1rem; transition: 0.3s;
+        }
+        input:focus, select:focus, textarea:focus { 
+            border-color: var(--gold); background: rgba(212, 175, 55, 0.05);
+            outline: none; box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        /* --- COURSE CARDS --- */
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .course-card { 
+            background: var(--glass); border: 1px solid var(--glass-border); 
+            border-radius: 30px; padding: 3rem; transition: 0.4s;
+        }
+        .course-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .course-card ul { list-style: none; margin-top: 1.5rem; }
+        .course-card li { margin-bottom: 12px; color: var(--grey); display: flex; align-items: center; font-size: 0.9rem; }
+        .course-card li i { color: var(--gold); margin-right: 12px; }
+
+        /* --- FACULTY --- */
+        .faculty-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+        .fac-img { border-radius: 40px; overflow: hidden; border: 1px solid var(--glass-border); height: 600px; }
+        .fac-img img { width: 100%; height: 100%; object-fit: cover; }
+        .fac-contact { margin-top: 2.5rem; }
+        .fac-contact p { color: #fff !important; font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; }
+        .fac-contact i { color: var(--gold); width: 40px; font-size: 1.4rem; }
+
+        /* --- FOOTER --- */
+        footer { padding: 80px 0 30px; border-top: 1px solid var(--glass-border); text-align: center; }
+        .footer-logo { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 2rem; }
+        .footer-logo img { height: 50px; }
+        .qlivo-credit { margin-top: 40px; font-size: 0.8rem; color: var(--grey); letter-spacing: 2px; }
+        .qlivo-credit a { color: var(--gold); text-decoration: none; font-weight: 800; }
 
         /* --- MOBILE OVERLAY --- */
         .mobile-overlay {
@@ -79,79 +165,7 @@
             transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .mobile-overlay.active { right: 0; }
-        .mobile-overlay a { font-size: 1.5rem; color: #fff; text-decoration: none; margin: 1rem 0; font-weight: 700; }
-
-        /* --- HERO --- */
-        .hero {
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; padding: 0 1.5rem; background: radial-gradient(circle at center, #111 0%, #050505 100%);
-        }
-        .hero-title {
-            font-size: clamp(2.5rem, 10vw, 6rem); line-height: 1.1;
-            font-weight: 900; margin-bottom: 1.5rem;
-            background: linear-gradient(180deg, #fff 50%, var(--gold) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .hero-subtitle { color: var(--grey); font-size: 1.2rem; max-width: 800px; margin: 0 auto 2.5rem; font-weight: 300; }
-
-        .btn {
-            padding: 18px 45px; border-radius: 50px; text-decoration: none;
-            font-weight: 700; font-size: 0.9rem; transition: 0.4s; display: inline-block;
-            letter-spacing: 1px; border: none; cursor: pointer;
-        }
-        .btn-gold { background: var(--gold); color: #000; }
-        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4); }
-
-        /* --- SECTION GENERIC --- */
-        .section { padding: 120px 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        .section-header { text-align: center; margin-bottom: 5rem; }
-        .section-header h2 { font-size: 3rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        .section-header span { color: var(--gold); }
-        
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* --- METHODOLOGY (NEW) --- */
-        .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .method-card { text-align: center; padding: 3rem 2rem; border: 1px solid var(--glass-border); border-radius: 30px; background: var(--glass); }
-        .method-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 1.5rem; }
-
-        /* --- COURSE DETAILED --- */
-        .course-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; }
-        .course-card { 
-            background: var(--dark); border: 1px solid var(--glass-border); 
-            border-radius: 30px; padding: 3rem; transition: 0.4s; position: relative; overflow: hidden;
-        }
-        .course-card:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .course-card ul { list-style: none; margin-top: 1.5rem; }
-        .course-card li { margin-bottom: 12px; color: var(--grey); display: flex; align-items: center; }
-        .course-card li i { color: var(--gold); margin-right: 12px; font-size: 0.8rem; }
-
-        /* --- FACULTY --- */
-        .faculty-flex { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
-        .fac-img-box { border-radius: 40px; overflow: hidden; border: 1px solid var(--glass-border); position: relative; height: 600px; }
-        .fac-img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .fac-contact-info { margin-top: 2rem; }
-        .fac-contact-info p { color: #fff !important; font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; }
-        .fac-contact-info i { color: var(--gold); width: 40px; font-size: 1.4rem; }
-
-        /* --- TESTIMONIALS (NEW) --- */
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .test-card { background: var(--glass); padding: 2.5rem; border-radius: 25px; border: 1px solid var(--glass-border); position: relative; }
-        .test-card::before { content: "\f10d"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; top: 20px; left: 20px; color: var(--gold); opacity: 0.2; font-size: 2rem; }
-
-        /* --- FAQ --- */
-        .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: var(--glass); margin-bottom: 1rem; border-radius: 15px; overflow: hidden; border: 1px solid var(--glass-border); }
-        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; color: var(--grey); }
-
-        /* --- FOOTER --- */
-        footer { padding: 100px 0 40px; border-top: 1px solid var(--glass-border); text-align: center; }
-        .footer-logo img { height: 60px; margin-bottom: 2rem; }
-        .qlivo-credit { margin-top: 50px; font-size: 0.8rem; color: var(--grey); letter-spacing: 2px; }
-        .qlivo-credit a { color: var(--gold); text-decoration: none; font-weight: 800; }
+        .mobile-overlay a { font-size: 1.8rem; color: #fff; text-decoration: none; margin: 1rem 0; font-weight: 700; }
 
         .wa-float {
             position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
@@ -163,10 +177,10 @@
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .mobile-btn { display: block; }
-            .faculty-flex { grid-template-columns: 1fr; gap: 3rem; }
-            .fac-img-box { height: 400px; }
+            .portal-grid, .faculty-wrap { grid-template-columns: 1fr; }
+            .admission-portal { padding: 2rem; }
+            .fac-img { height: 400px; }
             .hero-title { font-size: 3.5rem; }
-            .section { padding: 80px 0; }
         }
     </style>
 </head>
@@ -174,118 +188,85 @@
 
     <canvas id="particle-canvas"></canvas>
 
-    <!-- Mobile Nav -->
+    <!-- Mobile Navigation -->
     <div class="mobile-overlay" id="mobileOverlay">
         <div style="position:absolute; top:20px; right:20px; font-size:2rem; color:var(--gold);" id="closeBtn"><i class="fas fa-times"></i></div>
         <a href="#home">Home</a>
-        <a href="#about">Methodology</a>
         <a href="#courses">Courses</a>
-        <a href="#faculty">Surya Kant Sharma</a>
+        <a href="#faculty">Faculty</a>
         <a href="#admissions">Enquiry</a>
     </div>
 
-    <!-- Nav -->
+    <!-- Header Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <!-- Replace src with your logo.jpg -->
-                <img src="logo.jpg" alt="COMMERCE THIKANA">
+            <a href="#home" class="brand-box">
+                <img src="logo.jpg" alt="Logo">
+                <span class="logo-text">COMMERCE <span>THIKANA</span></span>
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">Methodology</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#faculty">Faculty</a></li>
-                <li><a href="#results">Success</a></li>
+                <li><a href="#courses">Programs</a></li>
+                <li><a href="#faculty">Mentor</a></li>
                 <li><a href="#admissions">Admissions</a></li>
             </ul>
             <div class="mobile-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <p style="color:var(--gold); letter-spacing: 5px; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;">Future-Ready Commerce Education</p>
-            <h1 class="hero-title">Master the Art of <br> Numbers & Logic.</h1>
-            <p class="hero-subtitle">Premium coaching for Class 11th, 12th & CUET by Surya Kant Sharma. We don't just teach accounts; we build financial leaders.</p>
+            <p style="color:var(--gold); letter-spacing: 6px; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem;">Elite Commerce Mentorship</p>
+            <h1 class="hero-title">Think Commerce.<br>Think Excellence.</h1>
+            <p class="hero-subtitle">High-performance coaching for Class 11, 12, & CUET by Surya Kant Sharma. Transforming students into future industry leaders.</p>
             <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
-                <a href="#admissions" class="btn btn-gold">BOOK FREE DEMO</a>
-                <a href="#courses" class="btn" style="border:1px solid var(--gold); color:var(--gold);">EXPLORE BATCHES</a>
+                <a href="#admissions" class="btn btn-gold">SECURE YOUR SEAT</a>
+                <a href="#courses" class="btn" style="border:1px solid var(--gold); color:var(--gold);">VIEW BATCHES</a>
             </div>
         </div>
     </section>
 
-    <!-- Methodology -->
-    <section class="section container reveal" id="about">
-        <div class="section-header">
-            <h2>Our <span>Methodology</span></h2>
-            <p style="color:var(--grey)">The 4-Pillar Strategy to Academic Perfection</p>
-        </div>
-        <div class="method-grid">
-            <div class="method-card">
-                <i class="fas fa-brain"></i>
-                <h3 style="margin-bottom:15px;">Visualize Concepts</h3>
-                <p style="color:var(--grey); font-size: 0.9rem;">No rote learning. We use real-world business scenarios to help you visualize accounting entries.</p>
-            </div>
-            <div class="method-card" style="border-color:var(--gold);">
-                <i class="fas fa-edit"></i>
-                <h3 style="margin-bottom:15px;">Rigorous Practice</h3>
-                <p style="color:var(--grey); font-size: 0.9rem;">Daily practice sheets and curated assignments from top reference books like TS Grewal & Sandeep Garg.</p>
-            </div>
-            <div class="method-card">
-                <i class="fas fa-vial"></i>
-                <h3 style="margin-bottom:15px;">Weekly Testing</h3>
-                <p style="color:var(--grey); font-size: 0.9rem;">Chapter-wise mock tests to track your speed, accuracy, and presentation skills before Boards.</p>
-            </div>
-            <div class="method-card">
-                <i class="fas fa-trophy"></i>
-                <h3 style="margin-bottom:15px;">Peak Result</h3>
-                <p style="color:var(--grey); font-size: 0.9rem;">One-on-one doubt sessions and final revision marathons to ensure you touch that 100/100 mark.</p>
-            </div>
+    <!-- Success Stats -->
+    <section class="container reveal" style="padding: 50px 0; border-bottom: 1px solid var(--glass-border);">
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align:center; gap:3rem;">
+            <div><h2 style="font-size:3rem; color:var(--gold);">100/100</h2><p style="color:var(--grey); font-size:0.8rem; letter-spacing:2px;">HIGHEST SCORES</p></div>
+            <div><h2 style="font-size:3rem; color:var(--gold);">500+</h2><p style="color:var(--grey); font-size:0.8rem; letter-spacing:2px;">STUDENTS TAUGHT</p></div>
+            <div><h2 style="font-size:3rem; color:var(--gold);">98%</h2><p style="color:var(--grey); font-size:0.8rem; letter-spacing:2px;">SUCCESS RATE</p></div>
         </div>
     </section>
 
-    <!-- Expanded Courses -->
+    <!-- Programs -->
     <section class="section container reveal" id="courses">
         <div class="section-header">
-            <h2>Elite <span>Programs</span></h2>
+            <h2>Our <span>Programs</span></h2>
         </div>
-        <div class="course-row">
-            <!-- Course 1 -->
+        <div class="course-grid">
             <div class="course-card">
-                <div style="color:var(--gold); font-weight:800; font-size:0.8rem; margin-bottom:10px;">BATCH 2026</div>
-                <h3 style="font-size: 2rem; margin-bottom:1rem;">Class 12th Boards</h3>
-                <p style="color:var(--grey);">The ultimate roadmap for Class 12th Commerce students to excel in CBSE/ISC Boards.</p>
+                <h3 style="color:var(--gold); font-size: 1.8rem; margin-bottom:1rem;">Class 12th Boards</h3>
+                <p style="color:var(--grey); font-size:0.9rem;">Targeting 100/100 for Batch 2026. Intensive coverage of CBSE/ISC syllabus.</p>
                 <ul>
-                    <li><i class="fas fa-circle"></i> Partnership & Company Accounts</li>
-                    <li><i class="fas fa-circle"></i> Macro & Indian Economics</li>
-                    <li><i class="fas fa-circle"></i> Case Studies in Business Studies</li>
-                    <li><i class="fas fa-circle"></i> Board Paper Presentation Tips</li>
+                    <li><i class="fas fa-check-circle"></i> Partnership & Company Accounts</li>
+                    <li><i class="fas fa-check-circle"></i> Macro & Indian Economics</li>
+                    <li><i class="fas fa-check-circle"></i> Case Study Specialist BST</li>
                 </ul>
             </div>
-            <!-- Course 2 -->
             <div class="course-card" style="border-color:var(--gold);">
-                <div style="color:var(--gold); font-weight:800; font-size:0.8rem; margin-bottom:10px;">ENTRANCE SPECIAL</div>
-                <h3 style="font-size: 2rem; margin-bottom:1rem;">CUET Intensive</h3>
-                <p style="color:var(--grey);">Focused preparation for target central universities like DU (SRCC, Hindu), BHU, and more.</p>
+                <h3 style="color:var(--gold); font-size: 1.8rem; margin-bottom:1rem;">CUET Intensive</h3>
+                <p style="color:var(--grey); font-size:0.9rem;">The specialized path to top universities like SRCC, Hindu, and LSR.</p>
                 <ul>
-                    <li><i class="fas fa-circle"></i> Domain Subject Mastery</li>
-                    <li><i class="fas fa-circle"></i> MCQ Speed Training</li>
-                    <li><i class="fas fa-circle"></i> General Test & Logical Reasoning</li>
-                    <li><i class="fas fa-circle"></i> Previous Year CUET Analysis</li>
+                    <li><i class="fas fa-check-circle"></i> Domain Subject Mastery</li>
+                    <li><i class="fas fa-check-circle"></i> MCQ Speed Optimization</li>
+                    <li><i class="fas fa-check-circle"></i> Rapid Revision Notes</li>
                 </ul>
             </div>
-            <!-- Course 3 -->
             <div class="course-card">
-                <div style="color:var(--gold); font-weight:800; font-size:0.8rem; margin-bottom:10px;">FOUNDATION</div>
-                <h3 style="font-size: 2rem; margin-bottom:1rem;">Class 11th Commerce</h3>
-                <p style="color:var(--grey);">Building the core logic for students entering the commerce stream for the first time.</p>
+                <h3 style="color:var(--gold); font-size: 1.8rem; margin-bottom:1rem;">Class 11th Foundation</h3>
+                <p style="color:var(--grey); font-size:0.9rem;">Laying the strongest foundation for a professional career in CA/CS.</p>
                 <ul>
-                    <li><i class="fas fa-circle"></i> Basic Accounting Terms & Logic</li>
-                    <li><i class="fas fa-circle"></i> Journal, Ledger & Cash Book</li>
-                    <li><i class="fas fa-circle"></i> Statistics & Micro Economics</li>
-                    <li><i class="fas fa-circle"></i> Weekly Career Counselling</li>
+                    <li><i class="fas fa-check-circle"></i> Basic Accounting Logic</li>
+                    <li><i class="fas fa-check-circle"></i> Journal to Final Accounts</li>
+                    <li><i class="fas fa-check-circle"></i> Statistics & Micro-Economics</li>
                 </ul>
             </div>
         </div>
@@ -293,87 +274,57 @@
 
     <!-- Faculty -->
     <section class="section container reveal" id="faculty">
-        <div class="faculty-flex">
-            <div class="fac-img-box">
-                <!-- Replace with img.jpg -->
+        <div class="faculty-wrap">
+            <div class="fac-img">
                 <img src="img.jpg" alt="Surya Kant Sharma">
             </div>
-            <div class="fac-content">
-                <p style="color:var(--gold); font-weight:800; letter-spacing:3px; text-transform:uppercase; margin-bottom:1rem;">Founder & Head Mentor</p>
-                <h2 style="font-size:4rem; line-height:1; margin-bottom:2rem;">Surya Kant Sharma</h2>
-                <p style="color:var(--grey); font-size:1.2rem; margin-bottom:2rem;">Specializing in Accounts, Economics, and Business Studies. Surya Kant Sharma is known for his unique ability to simplify complex financial laws and theories into easy-to-remember concepts.</p>
+            <div>
+                <p style="color:var(--gold); font-weight:800; letter-spacing:4px; text-transform:uppercase; margin-bottom:1rem;">Founder & Mentor</p>
+                <h2 style="font-size:3.8rem; line-height:1.1; margin-bottom:1.5rem;">Surya Kant Sharma</h2>
+                <p style="color:var(--grey); font-size:1.2rem; margin-bottom:2rem; font-weight:300;">With over a decade of teaching experience, Surya Kant Sharma is a renowned specialist in Commerce. His "Smart Logic" method has helped hundreds of students crack difficult concepts with ease.</p>
                 
-                <div class="fac-contact-info">
-                    <p><i class="fas fa-phone"></i> +91 8218503127</p>
+                <div class="fac-contact">
+                    <p><i class="fas fa-phone-alt"></i> +91 8218503127</p>
                     <p><i class="fas fa-envelope"></i> suryakantyk4@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Commerce Thikana Academy Hub</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="section container reveal">
-        <div class="section-header">
-            <h2>Student <span>Voice</span></h2>
-        </div>
-        <div class="testimonial-grid">
-            <div class="test-card">
-                <p style="margin-bottom:20px; font-style:italic; color:var(--grey);">"Surya Sir's method of teaching Partnership Accounts is unmatched. I scored 100/100 in my Board Exams thanks to his mock tests."</p>
-                <h4 style="color:var(--gold)">- Rahul Singhania</h4>
-                <span style="font-size:0.8rem;">(Scored 98% in Boards)</span>
-            </div>
-            <div class="test-card">
-                <p style="margin-bottom:20px; font-style:italic; color:var(--grey);">"The weekly doubt sessions helped me clear my basics in Micro Economics. Best place for Commerce in the city!"</p>
-                <h4 style="color:var(--gold)">- Ananya Verma</h4>
-                <span style="font-size:0.8rem;">(SRCC Alumnus)</span>
-            </div>
-            <div class="test-card">
-                <p style="margin-bottom:20px; font-style:italic; color:var(--grey);">"CUET prep was very smooth. The MCQ shortcuts for accounts saved me so much time in the actual exam."</p>
-                <h4 style="color:var(--gold)">- Ishaan Gupta</h4>
-                <span style="font-size:0.8rem;">(CUET Topper)</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section container reveal">
-        <div class="section-header">
-            <h2>Common <span>Questions</span></h2>
-        </div>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">What subjects are covered? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer"><p style="padding-bottom:20px;">We specialize in core commerce subjects: Accountancy, Economics, and Business Studies for Class 11, 12 and CUET.</p></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Do you provide study material? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer"><p style="padding-bottom:20px;">Yes, every student gets exclusive chapter-wise notes, practice sheets, and a question bank of the last 10 years' board papers.</p></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Are there demo classes? <i class="fas fa-plus"></i></div>
-                <div class="faq-answer"><p style="padding-bottom:20px;">Absolutely. We offer 2 free demo classes so students can experience our teaching methodology first-hand.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Admissions -->
+    <!-- Admission Portal -->
     <section class="section container reveal" id="admissions">
-        <div class="method-card" style="max-width:800px; margin:0 auto;">
-            <h2 style="margin-bottom:2.5rem; font-size:2.5rem;">Join the <span>Elite Batch</span></h2>
+        <div class="admission-portal">
+            <h2 style="text-align: center; margin-bottom:3rem; font-size:2.5rem;">Admission <span>Portal</span></h2>
             <form id="waForm">
-                <input type="text" id="name" placeholder="Student Name" required>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
-                    <input type="tel" id="phone" placeholder="Contact Number" required>
-                    <select id="course" required>
-                        <option value="">Interested Program</option>
-                        <option>Class 12th Boards</option>
-                        <option>Class 11th Foundation</option>
-                        <option>CUET Preparation</option>
-                    </select>
+                <div class="portal-grid">
+                    <div class="form-group">
+                        <label>Student Name</label>
+                        <input type="text" id="name" placeholder="Enter Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <input type="tel" id="phone" placeholder="+91 00000 00000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Target Program</label>
+                        <select id="course" required>
+                            <option value="" disabled selected>Select Your Course</option>
+                            <option>Class 12th Board (2026)</option>
+                            <option>Class 11th Foundation</option>
+                            <option>CUET Preparation</option>
+                            <option>Accounts Specialist Batch</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Previous Percentage / School</label>
+                        <input type="text" id="school" placeholder="e.g. 90% / DPS Delhi" required>
+                    </div>
                 </div>
-                <textarea id="msg" rows="4" placeholder="Mention your last school percentage or any specific query..."></textarea>
-                <button type="submit" class="btn btn-gold" style="width:100%;">SEND WHATSAPP ENQUIRY</button>
+                <div class="form-group">
+                    <label>Your Message / Career Goals</label>
+                    <textarea id="msg" rows="4" placeholder="Briefly tell us about your requirements..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-gold" style="width:100%;">SEND OFFICIAL ENQUIRY</button>
             </form>
         </div>
     </section>
@@ -382,39 +333,40 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="logo.jpg" alt="COMMERCE THIKANA">
+                <img src="logo.jpg" alt="Logo">
+                <span class="logo-text">COMMERCE <span>THIKANA</span></span>
             </div>
-            <p style="color:var(--grey); max-width:600px; margin:0 auto 2rem;">Revolutionizing Commerce coaching with technology and conceptual mastery. Join Surya Kant Sharma to secure your future.</p>
+            <p style="color:var(--grey); max-width:600px; margin: 0 auto 2rem;">The premium destination for aspiring commerce professionals. Smart learning, consistent results.</p>
             <div style="display:flex; justify-content:center; gap:2rem; margin-bottom:3rem;">
                 <a href="#" style="color:var(--white); font-size:1.5rem;"><i class="fab fa-instagram"></i></a>
-                <a href="#" style="color:var(--white); font-size:1.5rem;"><i class="fab fa-linkedin"></i></a>
                 <a href="#" style="color:var(--white); font-size:1.5rem;"><i class="fab fa-youtube"></i></a>
             </div>
-            <p style="font-size:0.8rem; color:#444;">© 2024 COMMERCE THIKANA | ALL RIGHTS RESERVED</p>
             <div class="qlivo-credit">
-                Websites By Qlivo - <a href="https://wa.me/917505683326?text=Hi%20Harsh%2C%20I%20saw%20the%20Commerce%20Thikana%20website%20and%20I%20want%20a%20premium%20website%20too!" target="_blank">Harsh Bansal</a>
+                Websites By Qlivo - <a href="https://wa.me/917505683326?text=Hi%20Harsh%2C%20I%20saw%20Commerce%20Thikana's%20website.%20I'd%20like%20to%20discuss%20a%20project%20with%20you!" target="_blank">Harsh Bansal</a>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp -->
+    <!-- WhatsApp Floating Action -->
     <a href="https://wa.me/918218503127" class="wa-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // --- 1. WhatsApp Redirection ---
+        // --- 1. WhatsApp Redirection Logic ---
         document.getElementById('waForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const n = document.getElementById('name').value;
             const p = document.getElementById('phone').value;
             const c = document.getElementById('course').value;
+            const s = document.getElementById('school').value;
             const m = document.getElementById('msg').value;
-            const text = `*New Admission Enquiry*%0A*Name:* ${n}%0A*Phone:* ${p}%0A*Course:* ${c}%0A*Message:* ${m}`;
+            
+            const text = `*NEW ADMISSION PORTAL ENQUIRY*%0A---------------------------%0A*Student:* ${n}%0A*Phone:* ${p}%0A*Program:* ${c}%0A*School/Prev %:* ${s}%0A*Message:* ${m}%0A---------------------------`;
             window.open(`https://wa.me/918218503127?text=${text}`, '_blank');
         });
 
-        // --- 2. Mobile Menu Logic ---
+        // --- 2. Menu Logic ---
         const menuBtn = document.getElementById('menuBtn');
         const closeBtn = document.getElementById('closeBtn');
         const overlay = document.getElementById('mobileOverlay');
@@ -425,38 +377,22 @@
             a.onclick = () => overlay.classList.remove('active');
         });
 
-        // --- 3. Scroll Reveal ---
-        const reveal = () => {
+        // --- 3. Scroll Reveal & Navbar ---
+        const scrollReveal = () => {
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(r => {
-                const windowHeight = window.innerHeight;
                 const revealTop = r.getBoundingClientRect().top;
-                if (revealTop < windowHeight - 100) r.classList.add('active');
+                if (revealTop < window.innerHeight - 100) r.classList.add('active');
             });
         };
-        window.addEventListener('scroll', reveal);
+        window.addEventListener('scroll', scrollReveal);
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
-        // --- 4. FAQ Accordion ---
-        document.querySelectorAll('.faq-question').forEach(q => {
-            q.onclick = () => {
-                const answer = q.nextElementSibling;
-                const icon = q.querySelector('i');
-                if (answer.style.maxHeight) {
-                    answer.style.maxHeight = null;
-                    icon.classList.replace('fa-minus', 'fa-plus');
-                } else {
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                    icon.classList.replace('fa-plus', 'fa-minus');
-                }
-            };
-        });
-
-        // --- 5. Particles ---
+        // --- 4. Particles ---
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let parts = [];
