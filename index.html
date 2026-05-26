@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commerce Thikana | Surya Kant Sharma | Premium Commerce Academy</title>
     
+    <!-- PRIMARY SEO TAGS -->
+    <title>Commerce Thikana | Surya Kant Sharma | Premium Commerce Coaching</title>
+    <meta name="description" content="Master Accounts, Economics & BST with Surya Kant Sharma. Premium coaching for Class 11, 12 & CUET. Smart logic based learning in a luxury environment.">
+    <meta name="keywords" content="Commerce Thikana, Surya Kant Sharma, Best Commerce Coaching, Class 12 Accounts, CUET Prep, Economics Specialist">
+    <meta name="author" content="Surya Kant Sharma">
+    
+    <!-- OPEN GRAPH (Social Media SEO) -->
+    <meta property="og:title" content="Commerce Thikana | Elite Commerce Academy">
+    <meta property="og:description" content="Transforming students into commerce leaders. Admissions Open 2026.">
+    <meta property="og:image" content="logo.jpg">
+    <meta property="og:url" content="https://www.commercethikana.com">
+
+    <!-- JSON-LD SCHEMA (Google Local SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Commerce Thikana",
+      "founder": "Surya Kant Sharma",
+      "address": { "@type": "PostalAddress", "addressLocality": "India" },
+      "telephone": "+918218503127",
+      "url": "https://www.commercethikana.com"
+    }
+    </script>
+
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,151 +46,75 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
         html { scroll-behavior: smooth; overflow-x: hidden; }
-
-        body {
-            background-color: var(--black);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
+        body { background-color: var(--black); color: var(--white); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
         h1, h2, h3, .logo-text { font-family: 'Poppins', sans-serif; }
 
         /* --- BACKGROUND PARTICLES --- */
-        #particle-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; pointer-events: none; opacity: 0.5;
-        }
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.5; }
 
         /* --- NAVIGATION --- */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 1rem 0; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        nav.scrolled {
-            background: rgba(8, 8, 8, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--glass-border);
-        }
-        .nav-container {
-            max-width: 1300px; margin: 0 auto; padding: 0 1.5rem;
-            display: flex; justify-content: space-between; align-items: center;
-        }
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; transition: 0.4s; }
+        nav.scrolled { background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); padding: 0.8rem 0; }
+        .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
         
         .brand-box { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .brand-box img { height: 45px; width: 45px; object-fit: contain; border-radius: 5px; }
-        .logo-text { 
-            font-size: 1.2rem; font-weight: 800; color: #fff; 
-            letter-spacing: 1px; text-transform: uppercase; 
-        }
+        .logo-text { font-size: 1.2rem; font-weight: 800; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
         .logo-text span { color: var(--gold); }
 
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-        .nav-links a { 
-            text-decoration: none; color: var(--grey); 
-            font-size: 0.75rem; font-weight: 600; transition: 0.3s;
-            text-transform: uppercase; letter-spacing: 1.5px;
-        }
-        .nav-links a:hover, .nav-social:hover { color: var(--gold); }
-        .nav-social { color: #fff; font-size: 1.1rem; transition: 0.3s; }
-
+        .nav-links a { text-decoration: none; color: var(--grey); font-size: 0.75rem; font-weight: 600; transition: 0.3s; text-transform: uppercase; letter-spacing: 1.5px; }
+        .nav-links a:hover { color: var(--gold); }
         .mobile-btn { display: none; font-size: 1.5rem; color: var(--gold); cursor: pointer; }
 
         /* --- HERO --- */
-        .hero {
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            text-align: center; padding: 0 1.5rem; background: radial-gradient(circle at center, #111 0%, #080808 100%);
-        }
-        .hero-title {
-            font-size: clamp(2.5rem, 10vw, 6.5rem); line-height: 1;
-            font-weight: 900; margin-bottom: 1.5rem;
-            background: linear-gradient(180deg, #fff 50%, var(--gold) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 1.5rem; background: radial-gradient(circle at center, #111 0%, #080808 100%); }
+        .hero-title { font-size: clamp(2.5rem, 10vw, 6.5rem); line-height: 1; font-weight: 900; margin-bottom: 1.5rem; background: linear-gradient(180deg, #fff 50%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-subtitle { color: var(--grey); font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem; font-weight: 300; }
 
-        .btn {
-            padding: 20px 45px; border-radius: 50px; text-decoration: none;
-            font-weight: 700; font-size: 0.9rem; transition: 0.5s; display: inline-block;
-            letter-spacing: 1px; border: none; cursor: pointer;
-        }
+        .btn { padding: 20px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.5s; display: inline-block; letter-spacing: 1px; border: none; cursor: pointer; }
         .btn-gold { background: var(--gold); color: #000; }
         .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 15px 40px var(--gold-glow); }
 
         /* --- SECTIONS --- */
-        .section { padding: 120px 0; }
+        .section { padding: 100px 0; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         .section-header { text-align: center; margin-bottom: 5rem; }
         .section-header h2 { font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; }
         .section-header span { color: var(--gold); }
-        
         .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- PREMIUM ADMISSION PORTAL --- */
-        .admission-portal {
-            max-width: 850px; margin: 0 auto;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--glass-border);
-            border-radius: 40px; padding: 4rem;
-            position: relative; overflow: hidden;
-        }
-        .portal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; font-size: 0.75rem; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; font-weight: 700; }
-        
-        input, select, textarea {
-            width: 100%; padding: 18px; background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 15px;
-            color: #fff; font-family: inherit; font-size: 1rem; transition: 0.3s;
-        }
-        input:focus, select:focus, textarea:focus { border-color: var(--gold); background: rgba(212, 175, 55, 0.05); outline: none; }
-
-        /* --- FACULTY (AUTO SLIDESHOW) --- */
+        /* --- FACULTY SLIDESHOW --- */
         .faculty-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
-        
-        .fac-img-slideshow { 
-            border-radius: 40px; overflow: hidden; border: 1px solid var(--glass-border); 
-            height: 600px; position: relative; 
-        }
-        .fac-img-slideshow img { 
-            position: absolute; top: 0; left: 0; 
-            width: 100%; height: 100%; object-fit: cover; 
-            transition: opacity 1.5s ease-in-out; /* The Dissolve Effect */
-        }
+        .fac-img-slideshow { border-radius: 40px; overflow: hidden; border: 1px solid var(--glass-border); height: 600px; position: relative; }
+        .fac-img-slideshow img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.5s ease-in-out; }
         .fac-img-slideshow img.hidden { opacity: 0; }
         .fac-img-slideshow img.active { opacity: 1; }
+        .fac-contact { margin-top: 2rem; }
+        .fac-contact p { color: #fff !important; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; }
+        .fac-contact i { color: var(--gold); width: 35px; font-size: 1.3rem; }
 
-        .fac-contact { margin-top: 2.5rem; }
-        .fac-contact p { color: #fff !important; font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; }
-        .fac-contact i { color: var(--gold); width: 40px; font-size: 1.4rem; }
+        /* --- ADMISSION PORTAL --- */
+        .admission-portal { max-width: 850px; margin: 0 auto; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 40px; padding: 4rem; }
+        .portal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-size: 0.7rem; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; font-weight: 700; }
+        input, select, textarea { width: 100%; padding: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; color: #fff; font-family: inherit; font-size: 1rem; }
+        input:focus, select:focus, textarea:focus { border-color: var(--gold); outline: none; }
 
         /* --- FOOTER --- */
         footer { padding: 80px 0 30px; border-top: 1px solid var(--glass-border); text-align: center; }
-        .footer-socials { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; }
-        .footer-socials a { color: #fff; font-size: 1.8rem; transition: 0.3s; }
-        .footer-socials a:hover { color: var(--gold); transform: translateY(-5px); }
-
-        .qlivo-credit { margin-top: 40px; font-size: 0.8rem; color: var(--grey); letter-spacing: 2px; }
-        .qlivo-credit a { color: var(--gold); text-decoration: none; font-weight: 800; }
+        .qlivo-credit { margin-top: 40px; font-size: 0.8rem; color: var(--grey); letter-spacing: 2px; text-transform: uppercase; }
+        .qlivo-credit a { color: var(--gold); text-decoration: none; font-weight: 800; border-bottom: 1px solid transparent; transition: 0.3s; }
+        .qlivo-credit a:hover { border-color: var(--gold); text-shadow: 0 0 10px var(--gold); }
 
         /* --- MOBILE --- */
-        .mobile-overlay {
-            position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-            background: var(--black); z-index: 2000; display: flex;
-            flex-direction: column; align-items: center; justify-content: center;
-            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .mobile-overlay { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: var(--black); z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.5s; }
         .mobile-overlay.active { right: 0; }
         .mobile-overlay a { font-size: 1.8rem; color: #fff; text-decoration: none; margin: 1rem 0; font-weight: 700; }
 
-        .wa-float {
-            position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
-            background: #25d366; color: white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 32px; z-index: 1000; box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-        }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 1000; box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
 
         @media (max-width: 900px) {
             .nav-links { display: none; }
@@ -186,8 +134,8 @@
     <div class="mobile-overlay" id="mobileOverlay">
         <div style="position:absolute; top:20px; right:20px; font-size:2rem; color:var(--gold);" id="closeBtn"><i class="fas fa-times"></i></div>
         <a href="#home">Home</a>
-        <a href="#courses">Programs</a>
         <a href="#faculty">Mentor</a>
+        <a href="#results">Success</a>
         <a href="#admissions">Enquiry</a>
     </div>
 
@@ -200,12 +148,12 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#courses">Programs</a></li>
                 <li><a href="#faculty">Mentor</a></li>
+                <li><a href="#results">Success</a></li>
                 <li><a href="#admissions">Admissions</a></li>
                 <li style="display:flex; gap:15px; margin-left:10px;">
-                    <a href="https://youtube.com/@commercethikana?si=r7Pm_KQyiJBDcWR" target="_blank" class="nav-social"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/commerce_thikana?igsh=bDRrdTlkeG1jbDdm" target="_blank" class="nav-social"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@commercethikana?si=r7Pm_KQyiJBDcWR" target="_blank" style="color:#fff;"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/commerce_thikana?igsh=bDRrdTlkeG1jbDdm" target="_blank" style="color:#fff;"><i class="fab fa-instagram"></i></a>
                 </li>
             </ul>
             <div class="mobile-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
@@ -215,37 +163,39 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <p style="color:var(--gold); letter-spacing: 6px; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem;">Luxury Coaching Experience</p>
-            <h1 class="hero-title">Legacy Of <br> Perfect Scores.</h1>
-            <p class="hero-subtitle">High-performance coaching for Class 11, 12, & CUET by Surya Kant Sharma. We turn conceptual logic into academic excellence.</p>
+            <p style="color:var(--gold); letter-spacing: 6px; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem;">Elite Commerce Academy</p>
+            <h1 class="hero-title">Beyond Theory.<br>Into Excellence.</h1>
+            <p class="hero-subtitle">High-performance coaching for Class 11, 12, & CUET by Surya Kant Sharma. Smart Logic. Consistent Results.</p>
             <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
                 <a href="#admissions" class="btn btn-gold">SECURE YOUR SEAT</a>
-                <a href="https://youtube.com/@commercethikana2.0?si=x0EQ9Fb01u1dv0_q" target="_blank" class="btn" style="border:1px solid #ff0000; color:#ff0000;"><i class="fab fa-youtube mr-2"></i> WATCH LECTURES</a>
+                <a href="#faculty" class="btn" style="border:1px solid var(--gold); color:var(--gold);">MEET THE MENTOR</a>
             </div>
         </div>
     </section>
 
-    <!-- Faculty Section (With Dissolve Slideshow) -->
+    <!-- Results (Success Stats) -->
+    <section class="section container reveal" id="results" style="text-align:center;">
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:3rem;">
+            <div><h2 style="font-size:4rem; color:var(--gold);">100/100</h2><p style="color:var(--grey); letter-spacing:2px;">ACCOUNTANCY</p></div>
+            <div><h2 style="font-size:4rem; color:var(--gold);">99/100</h2><p style="color:var(--grey); letter-spacing:2px;">ECONOMICS</p></div>
+            <div><h2 style="font-size:4rem; color:var(--gold);">98.6%</h2><p style="color:var(--grey); letter-spacing:2px;">BOARD AGGREGATE</p></div>
+        </div>
+    </section>
+
+    <!-- Faculty Section (Dissolve Slideshow) -->
     <section class="section container reveal" id="faculty">
         <div class="faculty-wrap">
-            <div class="fac-img-slideshow" id="slideshow">
-                <!-- Change image sources to your local files -->
-                <img src="img.jpg" alt="Surya Kant Sharma 1" class="active" id="img1">
-                <img src="img2.jpg" alt="Surya Kant Sharma 2" class="hidden" id="img2">
+            <div class="fac-img-slideshow">
+                <img src="img.jpg" alt="Surya Kant Sharma" class="active" id="img1">
+                <img src="img2.jpg" alt="Surya Kant Sharma" class="hidden" id="img2">
             </div>
             <div>
                 <p style="color:var(--gold); font-weight:800; letter-spacing:4px; text-transform:uppercase; margin-bottom:1rem;">Founder & Chief Mentor</p>
-                <h2 style="font-size:3.8rem; line-height:1.1; margin-bottom:1.5rem;">Surya Kant Sharma</h2>
-                <p style="color:var(--grey); font-size:1.2rem; margin-bottom:2rem; font-weight:300;">Specialist in Accounts, Economics, and Business Studies. Dedicated to providing a futuristic learning environment where logic prevails over rote learning.</p>
-                
+                <h2 style="font-size:3.5rem; line-height:1.1; margin-bottom:1.5rem;">Surya Kant Sharma</h2>
+                <p style="color:var(--grey); font-size:1.1rem; margin-bottom:2rem;">Specialist in Accounts, Economics, and Business Studies. Dedicated to providing a conceptual learning environment where logic prevails over rote learning.</p>
                 <div class="fac-contact">
                     <p><i class="fas fa-phone-alt"></i> +91 8218503127</p>
                     <p><i class="fas fa-envelope"></i> suryakantyk4@gmail.com</p>
-                </div>
-                
-                <div style="display:flex; gap:20px; margin-top:20px;">
-                    <a href="https://youtube.com/@commercethikana2.0?si=x0EQ9Fb01u1dv0_q" target="_blank" style="color:#fff; font-size:1.5rem;"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/commerce_thikana?igsh=bDRrdTlkeG1jbDdm" target="_blank" style="color:#fff; font-size:1.5rem;"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -257,34 +207,21 @@
             <h2 style="text-align: center; margin-bottom:3rem; font-size:2.5rem;">Admission <span>Portal</span></h2>
             <form id="waForm">
                 <div class="portal-grid">
+                    <div class="form-group"><label>Student Name</label><input type="text" id="name" placeholder="John Doe" required></div>
+                    <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="+91" required></div>
                     <div class="form-group">
-                        <label>Student Full Name</label>
-                        <input type="text" id="name" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Contact Number</label>
-                        <input type="tel" id="phone" placeholder="+91" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Interested Batch</label>
+                        <label>Target Course</label>
                         <select id="course" required>
-                            <option value="" disabled selected>Select Program</option>
+                            <option value="" disabled selected>Select Batch</option>
                             <option>Class 12th Board 2026</option>
                             <option>Class 11th Foundation</option>
-                            <option>CUET Domain Prep</option>
-                            <option>Accounts Special Batch</option>
+                            <option>CUET Preparation</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>School Name / Last %</label>
-                        <input type="text" id="school" placeholder="e.g. DPS / 92%" required>
-                    </div>
+                    <div class="form-group"><label>Last % / School</label><input type="text" id="school" placeholder="e.g. 92%"></div>
                 </div>
-                <div class="form-group">
-                    <label>Inquiry Message</label>
-                    <textarea id="msg" rows="4" placeholder="Mention your requirements..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-gold" style="width:100%;">SUBMIT & CHAT ON WHATSAPP</button>
+                <div class="form-group"><label>Message</label><textarea id="msg" rows="4" placeholder="Any specific requirements..."></textarea></div>
+                <button type="submit" class="btn btn-gold" style="width:100%;">SEND OFFICIAL ENQUIRY</button>
             </form>
         </div>
     </section>
@@ -292,109 +229,70 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-socials">
-                <a href="https://youtube.com/@commercethikana?si=r7Pm_KQyiJBDcWR" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/commerce_thikana?igsh=bDRrdTlkeG1jbDdm" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/918218503127" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <div class="brand-box" style="justify-content:center; margin-bottom:2rem;">
+                <img src="logo.jpg" alt="Logo">
+                <span class="logo-text">COMMERCE <span>THIKANA</span></span>
             </div>
-            <p style="color:var(--grey); max-width:600px; margin: 0 auto 1.5rem;">Commerce Thikana is the gold standard for commerce students. Smart Logic, Professional Results.</p>
-            <p style="font-size:0.7rem; color:#444; letter-spacing:2px;">© 2024 COMMERCE THIKANA | ALL RIGHTS RESERVED</p>
-            
+            <p style="color:var(--grey); font-size:0.9rem;">The Premium Destination for Commerce Excellence.</p>
             <div class="qlivo-credit">
-                Websites By Qlivo - <a href="https://wa.me/917505683326?text=Hi%20Harsh%2C%20I%20am%20interested%20in%20a%20premium%20website%20design.%20Let's%20discuss!" target="_blank">Harsh Bansal</a>
+                Websites By Qlivo - <a href="https://wa.me/917505683326?text=Hi%20Harsh%2C%20I%20saw%20the%20Commerce%20Thikana%20website%20and%20I%20want%20to%20discuss%20a%20website%20project." target="_blank">Harsh Bansal</a>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/918218503127" class="wa-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/918218503127" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // --- 1. WhatsApp Redirection ---
-        document.getElementById('waForm').addEventListener('submit', function(e) {
+        // --- 1. WhatsApp Logic ---
+        document.getElementById('waForm').onsubmit = function(e) {
             e.preventDefault();
-            const n = document.getElementById('name').value;
-            const p = document.getElementById('phone').value;
-            const c = document.getElementById('course').value;
-            const s = document.getElementById('school').value;
-            const m = document.getElementById('msg').value;
-            const text = `*OFFICIAL ADMISSION ENQUIRY*%0A---------------------------%0A*Student:* ${n}%0A*Phone:* ${p}%0A*Program:* ${c}%0A*Academic Info:* ${s}%0A*Message:* ${m}%0A---------------------------`;
+            const text = `*NEW ADMISSION ENQUIRY*%0A*Name:* ${document.getElementById('name').value}%0A*Phone:* ${document.getElementById('phone').value}%0A*Batch:* ${document.getElementById('course').value}%0A*Msg:* ${document.getElementById('msg').value}`;
             window.open(`https://wa.me/918218503127?text=${text}`, '_blank');
-        });
+        };
 
-        // --- 2. Dissolve Image Slideshow (10 Seconds) ---
-        let currentSlide = 1;
+        // --- 2. Auto-Dissolve Slideshow (10 Seconds) ---
         setInterval(() => {
-            const img1 = document.getElementById('img1');
-            const img2 = document.getElementById('img2');
-            
-            if (currentSlide === 1) {
-                img1.classList.remove('active');
-                img1.classList.add('hidden');
-                img2.classList.remove('hidden');
-                img2.classList.add('active');
-                currentSlide = 2;
+            const i1 = document.getElementById('img1'), i2 = document.getElementById('img2');
+            if (i1.classList.contains('active')) {
+                i1.className = 'hidden'; i2.className = 'active';
             } else {
-                img2.classList.remove('active');
-                img2.classList.add('hidden');
-                img1.classList.remove('hidden');
-                img1.classList.add('active');
-                currentSlide = 1;
+                i2.className = 'hidden'; i1.className = 'active';
             }
-        }, 10000); // 10000ms = 10 Seconds
+        }, 10000);
 
-        // --- 3. Mobile Menu ---
-        const menuBtn = document.getElementById('menuBtn');
-        const closeBtn = document.getElementById('closeBtn');
-        const overlay = document.getElementById('mobileOverlay');
+        // --- 3. UI Logic ---
+        const menuBtn = document.getElementById('menuBtn'), closeBtn = document.getElementById('closeBtn'), overlay = document.getElementById('mobileOverlay');
         menuBtn.onclick = () => overlay.classList.add('active');
         closeBtn.onclick = () => overlay.classList.remove('active');
-        document.querySelectorAll('.mobile-overlay a').forEach(a => {
-            a.onclick = () => overlay.classList.remove('active');
-        });
+        document.querySelectorAll('.mobile-overlay a').forEach(a => a.onclick = () => overlay.classList.remove('active'));
 
-        // --- 4. Scroll Reveal ---
-        const scrollReveal = () => {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(r => {
-                const revealTop = r.getBoundingClientRect().top;
-                if (revealTop < window.innerHeight - 100) r.classList.add('active');
+        const reveal = () => {
+            document.querySelectorAll('.reveal').forEach(r => {
+                if (r.getBoundingClientRect().top < window.innerHeight - 100) r.classList.add('active');
             });
         };
-        window.addEventListener('scroll', scrollReveal);
+        window.addEventListener('scroll', reveal);
         window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
+            const n = document.getElementById('navbar');
+            window.scrollY > 50 ? n.classList.add('scrolled') : n.classList.remove('scrolled');
         });
 
-        // --- 5. Particles ---
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
+        // --- 4. Particles ---
+        const canvas = document.getElementById('particle-canvas'), ctx = canvas.getContext('2d');
         let parts = [];
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-            parts = [];
-            for (let i = 0; i < 60; i++) parts.push({
-                x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-                s: Math.random() * 2, vx: Math.random() * 0.4 - 0.2, vy: Math.random() * 0.4 - 0.2
-            });
+            parts = []; for(let i=0; i<60; i++) parts.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, s:Math.random()*2, vx:Math.random()*0.4-0.2, vy:Math.random()*0.4-0.2});
         }
         function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0,0,canvas.width,canvas.height);
             parts.forEach(p => {
-                ctx.fillStyle = 'rgba(212,175,55,0.3)';
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2); ctx.fill();
-                p.x += p.vx; p.y += p.vy;
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.fillStyle='rgba(212,175,55,0.3)'; ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
+                p.x+=p.vx; p.y+=p.vy; if(p.x<0 || p.x>canvas.width) p.vx*=-1; if(p.y<0 || p.y>canvas.height) p.vy*=-1;
             });
             requestAnimationFrame(draw);
         }
-        init(); draw();
-        window.onresize = init;
+        init(); draw(); window.onresize = init;
     </script>
 </body>
 </html>
